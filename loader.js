@@ -1,33 +1,58 @@
-(function () {
-  const API = "https://secrettooldz.zya.me/api/verify.php";
-  const LICENSE_KEY = "PUBLIC_KEY_001";
+(async () => {
+  const KEY_FILE = "https://raw.githubusercontent.com/DhwanitZala-DZ/secretdztool/main/keys.txt";
+  const PAYLOAD_FILE = "https://raw.githubusercontent.com/DhwanitZala-DZ/secretdztool/main/payload.js";
 
-  async function run() {
-    try {
-      const res = await fetch(API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          key: LICENSE_KEY,
-          domain: location.hostname,
-          t: Date.now()
-        })
-      });
+  const userKey = prompt("Enter your license key:");
+  if (!userKey) return alert("No key provided.");
 
-      const data = await res.json();
+  try {
+    // Fetch keys (cache-buster to avoid stale copy)
+    const keyRes = await fetch(KEY_FILE + "?cb=" + Date.now());
+    if (!keyRes.ok) throw new Error("Unable to load key list");
 
-      if (!data.allowed) {
-        console.warn("License inactive");
-        return;
-      }
+    const keyText = await keyRes.text();
+    const lines = keyText.split("\n").map(l => l.trim()).filter(Boolean);
 
-      // Execute protected code
-      eval(data.payload);
-
-    } catch (e) {
-      console.error("License server unreachable");
+    // Check system ON/OFF
+    const systemLine = lines.find(l => l.startsWith("SYSTEM="));
+    if (!systemLine || systemLine.split("=")[1] !== "ON") {
+      alert("❌ System is currently disabled by developer.");
+      return;
     }
-  }
 
-  run();
+    // Check key validity and expiry
+    let valid = false;
+    for (const line of lines) {
+      if (line.includes("|")) {
+        const [key, dateStr] = line.split("|");
+        if (key === userKey) {
+          // Check date
+          const expiry = new Date(dateStr);
+          if (new Date() <= expiry) valid = true;
+          else {
+            alert("❌ Key expired.");
+            return;
+          }
+        }
+      }
+    }
+
+    if (!valid) {
+      alert("❌ Invalid license key.");
+      return;
+    }
+
+    // Load payload
+    const payloadRes = await fetch(PAYLOAD_FILE + "?cb=" + Date.now());
+    if (!payloadRes.ok) throw new Error("Payload missing");
+
+    const code = await payloadRes.text();
+    if (code.length < 10) throw new Error("Empty payload");
+
+    eval(code);
+
+  } catch (err) {
+    console.error("Loader error:", err);
+    alert("⚠️ Script unavailable now.");
+  }
 })();
