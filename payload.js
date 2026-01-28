@@ -22,13 +22,13 @@
     // Styles
     const style = document.createElement('style');
     style.innerHTML = `
-        /* Main Container - Smaller & Movable */
+        /* Main Container - Smaller Size */
         #thor-video-studio {
             position: fixed;
             top: 50px;
             left: 50px;
-            width: 800px;
-            height: 650px;
+            width: 650px;
+            height: 550px;
             background: linear-gradient(135deg, #0a0a1a 0%, #0f1a30 100%);
             border: 2px solid #00b4ff;
             border-radius: 15px;
@@ -50,34 +50,32 @@
         /* Header - Drag Handle */
         .thor-studio-header {
             background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
-            padding: 12px 20px;
+            padding: 12px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #00b4ff;
             cursor: move;
-            position: relative;
-            overflow: hidden;
         }
 
         .thor-studio-title {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .thor-studio-logo {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: linear-gradient(135deg, #00b4ff 0%, #0066ff 100%);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 20px;
             color: white;
-            box-shadow: 0 0 15px rgba(0, 180, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
         }
 
         .thor-studio-text {
@@ -86,7 +84,7 @@
         }
 
         .thor-studio-main-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: #00e0ff;
             letter-spacing: -0.5px;
@@ -94,31 +92,31 @@
         }
 
         .thor-studio-subtitle {
-            font-size: 11px;
+            font-size: 10px;
             color: #88d3ff;
             font-weight: 600;
         }
 
         .thor-developer-name {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: #00b4ff;
-            margin-left: 15px;
-            padding: 4px 10px;
+            margin-left: 10px;
+            padding: 3px 8px;
             background: rgba(0, 180, 255, 0.1);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(0, 180, 255, 0.3);
         }
 
         .thor-studio-controls {
             display: flex;
-            gap: 6px;
+            gap: 5px;
         }
 
         .thor-studio-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
             border: 1px solid rgba(0, 180, 255, 0.4);
             background: rgba(0, 180, 255, 0.1);
             color: #88d3ff;
@@ -127,17 +125,14 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
-            z-index: 2;
-            position: relative;
         }
 
         .thor-studio-btn:hover {
             background: rgba(0, 180, 255, 0.3);
             color: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
         }
 
         .thor-studio-btn.close:hover {
@@ -148,24 +143,24 @@
         /* Body Layout */
         .thor-studio-body {
             display: flex;
-            height: calc(100% - 66px);
+            height: calc(100% - 60px);
             overflow: hidden;
         }
 
         /* Left Panel - Controls */
         .thor-studio-left {
-            width: 300px;
+            width: 250px;
             background: rgba(10, 25, 50, 0.6);
-            padding: 15px;
+            padding: 12px;
             border-right: 1px solid rgba(0, 180, 255, 0.2);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             overflow-y: auto;
         }
 
         .thor-studio-left::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
 
         .thor-studio-left::-webkit-scrollbar-track {
@@ -183,13 +178,13 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 15px;
-            gap: 15px;
+            padding: 12px;
+            gap: 12px;
             overflow-y: auto;
         }
 
         .thor-studio-right::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
 
         .thor-studio-right::-webkit-scrollbar-track {
@@ -206,20 +201,20 @@
         .thor-control-group {
             background: rgba(0, 180, 255, 0.05);
             border: 1px solid rgba(0, 180, 255, 0.2);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 12px;
         }
 
         .thor-control-group-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
             color: #00b4ff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         /* Scan Button */
@@ -227,25 +222,25 @@
             background: linear-gradient(135deg, #00b4ff 0%, #0066ff 100%);
             color: white;
             border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 13px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
         }
 
         .thor-scan-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(0, 180, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
         }
 
         .thor-scan-btn.scanning {
@@ -255,13 +250,13 @@
 
         /* Results List */
         .thor-results-container {
-            max-height: 220px;
+            max-height: 180px;
             overflow-y: auto;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .thor-results-container::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
 
         .thor-results-container::-webkit-scrollbar-track {
@@ -276,64 +271,101 @@
         .thor-video-item {
             background: rgba(0, 180, 255, 0.05);
             border: 1px solid rgba(0, 180, 255, 0.15);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
         }
 
         .thor-video-item:hover {
             background: rgba(0, 180, 255, 0.1);
             border-color: #00b4ff;
-            transform: translateX(3px);
         }
 
         .thor-video-item.active {
             background: rgba(0, 180, 255, 0.15);
             border-color: #00b4ff;
-            box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
+            box-shadow: 0 0 8px rgba(0, 180, 255, 0.3);
         }
 
         .thor-video-info {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex: 1;
         }
 
         .thor-video-icon {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             background: rgba(0, 180, 255, 0.15);
-            border-radius: 7px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 16px;
             color: #00b4ff;
+            flex-shrink: 0;
+        }
+
+        .thor-video-details {
+            flex: 1;
+            min-width: 0;
         }
 
         .thor-video-details h4 {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            margin: 0 0 4px 0;
+            margin: 0 0 3px 0;
             color: #e6f7ff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .thor-video-details p {
-            font-size: 10px;
+            font-size: 9px;
             color: #88d3ff;
             margin: 0;
             font-family: 'Monaco', 'Courier New', monospace;
-            word-break: break-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Video Item Download Button */
+        .thor-item-download-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            background: rgba(0, 204, 136, 0.15);
+            color: #00cc88;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .thor-item-download-btn:hover {
+            background: rgba(0, 204, 136, 0.3);
+            color: #ffffff;
+            transform: scale(1.1);
         }
 
         /* Video Preview */
         .thor-preview-container {
-            flex: 1;
-            min-height: 250px;
+            height: 180px;
             background: #000;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(0, 180, 255, 0.3);
@@ -352,102 +384,100 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: #555;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .thor-preview-placeholder i {
-            font-size: 40px;
-            margin-bottom: 10px;
+            font-size: 35px;
+            margin-bottom: 8px;
             display: block;
             color: #333;
-        }
-
-        .thor-video-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 15px;
-            display: none;
-            gap: 8px;
-            justify-content: flex-end;
-        }
-
-        .thor-preview-container:hover .thor-video-controls {
-            display: flex;
         }
 
         /* Download Section */
         .thor-download-section {
             background: rgba(0, 180, 255, 0.05);
             border: 1px solid rgba(0, 180, 255, 0.2);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 12px;
         }
 
         .thor-download-info {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .thor-file-info {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex: 1;
         }
 
         .thor-file-icon {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: rgba(0, 180, 255, 0.15);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             color: #00b4ff;
+            flex-shrink: 0;
+        }
+
+        .thor-file-details {
+            flex: 1;
+            min-width: 0;
         }
 
         .thor-file-details h4 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
-            margin: 0 0 4px 0;
+            margin: 0 0 3px 0;
             color: #e6f7ff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .thor-file-details p {
-            font-size: 10px;
+            font-size: 9px;
             color: #88d3ff;
             margin: 0;
             font-family: 'Monaco', 'Courier New', monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .thor-download-btn {
             background: linear-gradient(135deg, #00cc88 0%, #009966 100%);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 13px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 12px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(0, 204, 136, 0.3);
+            box-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
+            flex-shrink: 0;
         }
 
         .thor-download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(0, 204, 136, 0.5);
+            box-shadow: 0 0 20px rgba(0, 204, 136, 0.5);
         }
 
         .thor-download-btn:disabled {
@@ -461,46 +491,46 @@
         .thor-video-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 12px;
-            padding-top: 12px;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
             border-top: 1px solid rgba(0, 180, 255, 0.2);
         }
 
         .thor-stat-item {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
+            gap: 5px;
+            font-size: 10px;
             color: #88d3ff;
         }
 
         .thor-stat-item i {
             color: #00b4ff;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         /* Developer Section */
         .thor-developer-section {
-            margin-top: 10px;
-            padding: 12px;
+            margin-top: 8px;
+            padding: 10px;
             background: rgba(0, 180, 255, 0.08);
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
             border: 1px solid rgba(0, 180, 255, 0.2);
         }
 
         .thor-developer-label {
-            font-size: 9px;
+            font-size: 8px;
             color: #88d3ff;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .thor-developer-name-large {
             color: #00e0ff;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 900;
             letter-spacing: 0.5px;
             text-shadow: 0 0 8px rgba(0, 224, 255, 0.5);
@@ -508,9 +538,9 @@
 
         .thor-developer-tag {
             color: #88d3ff;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 600;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         /* Loading Overlay */
@@ -533,13 +563,13 @@
         }
 
         .thor-loading-spinner {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border: 3px solid rgba(0, 180, 255, 0.1);
             border-top-color: #00b4ff;
             border-radius: 50%;
             animation: thorSpin 1s linear infinite;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
         }
 
         @keyframes thorSpin {
@@ -547,7 +577,7 @@
         }
 
         .thor-loading-text {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: #00b4ff;
             letter-spacing: 1px;
@@ -558,26 +588,26 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #00b4ff 0%, #0066ff 100%);
             color: white;
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 999998;
             font-weight: 900;
-            font-size: 20px;
-            box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
+            font-size: 18px;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.5);
             transition: all 0.3s ease;
             border: 2px solid white;
         }
 
         #thor-studio-toggle:hover {
             transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 0 30px rgba(0, 180, 255, 0.8);
+            box-shadow: 0 0 25px rgba(0, 180, 255, 0.8);
         }
 
         /* Progress Bar */
@@ -587,7 +617,7 @@
             background: rgba(0, 180, 255, 0.1);
             border-radius: 2px;
             overflow: hidden;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .thor-progress-bar {
@@ -595,27 +625,6 @@
             background: linear-gradient(90deg, #00b4ff, #0066ff);
             width: 0%;
             transition: width 0.3s ease;
-        }
-
-        /* Fullscreen Button */
-        .thor-fullscreen-btn {
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: 1px solid #00b4ff;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: all 0.2s;
-        }
-
-        .thor-fullscreen-btn:hover {
-            background: #00b4ff;
-            transform: scale(1.1);
         }
 
         /* Drag Overlay */
@@ -636,15 +645,15 @@
             right: 20px;
             background: rgba(10, 25, 50, 0.95);
             border: 1px solid #00b4ff;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-size: 13px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
             color: white;
             z-index: 999999;
             display: none;
-            max-width: 350px;
+            max-width: 300px;
             animation: thorSlideInRight 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
         }
 
         @keyframes thorSlideInRight {
@@ -669,9 +678,9 @@
         /* Developer Watermark */
         .thor-watermark {
             position: absolute;
-            bottom: 8px;
-            left: 15px;
-            font-size: 10px;
+            bottom: 6px;
+            left: 12px;
+            font-size: 9px;
             color: #00b4ff;
             font-weight: 700;
             opacity: 0.7;
@@ -680,9 +689,9 @@
         /* Version Badge */
         .thor-version {
             position: absolute;
-            bottom: 8px;
-            right: 15px;
-            font-size: 9px;
+            bottom: 6px;
+            right: 12px;
+            font-size: 8px;
             color: #88d3ff;
         }
     `;
@@ -691,11 +700,11 @@
     // HTML Structure
     container.innerHTML = `
         <div class="thor-studio-header">
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
                 <div class="thor-studio-title">
                     <div class="thor-studio-logo">⚡</div>
                     <div class="thor-studio-text">
-                        <div class="thor-studio-main-title">THOR VIDEO STUDIO</div>
+                        <div class="thor-studio-main-title">THOR VIDEO</div>
                         <div class="thor-studio-subtitle">BY DHWANIT ZALA</div>
                     </div>
                 </div>
@@ -704,7 +713,6 @@
                 </div>
             </div>
             <div class="thor-studio-controls">
-                <button class="thor-studio-btn minimize" title="Minimize">−</button>
                 <button class="thor-studio-btn close" title="Close">×</button>
             </div>
         </div>
@@ -716,7 +724,7 @@
                     </div>
                     <button class="thor-scan-btn" id="thor-scan-videos">
                         <span class="thor-scan-icon">🔍</span>
-                        <span class="thor-scan-text">SCAN FOR VIDEOS</span>
+                        <span class="thor-scan-text">SCAN VIDEOS</span>
                     </button>
                     <div class="thor-progress">
                         <div class="thor-progress-bar" id="thor-scan-progress"></div>
@@ -728,34 +736,20 @@
                         <span>📁</span> FOUND VIDEOS
                     </div>
                     <div class="thor-results-container" id="thor-video-results">
-                        <div class="thor-video-item" style="text-align: center; padding: 25px 12px;">
-                            <div style="font-size: 30px; margin-bottom: 8px; color: #00b4ff;">🎬</div>
-                            <div style="font-size: 12px; color: #88d3ff; font-weight: 600;">NO VIDEOS FOUND</div>
-                            <div style="font-size: 10px; color: #6688aa; margin-top: 4px;">Click SCAN to find videos</div>
+                        <div class="thor-video-item" style="text-align: center; padding: 20px 10px; justify-content: center;">
+                            <div>
+                                <div style="font-size: 25px; margin-bottom: 6px; color: #00b4ff;">🎬</div>
+                                <div style="font-size: 11px; color: #88d3ff; font-weight: 600;">NO VIDEOS FOUND</div>
+                                <div style="font-size: 9px; color: #6688aa; margin-top: 3px;">Click SCAN to find videos</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="thor-control-group">
-                    <div class="thor-control-group-title">
-                        <span>⚙️</span> SETTINGS
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <label style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #e6f7ff;">
-                            <input type="checkbox" id="thor-auto-play" checked>
-                            Auto-play preview
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #e6f7ff;">
-                            <input type="checkbox" id="thor-show-notifications" checked>
-                            Show notifications
-                        </label>
                     </div>
                 </div>
 
                 <div class="thor-developer-section">
                     <div class="thor-developer-label">Created & Developed by</div>
                     <div class="thor-developer-name-large">DHWANIT ZALA</div>
-                    <div class="thor-developer-tag">Video Extraction Expert</div>
+                    <div class="thor-developer-tag">Video Download Expert</div>
                 </div>
             </div>
             <div class="thor-studio-right">
@@ -764,10 +758,7 @@
                     <div class="thor-preview-placeholder" id="thor-preview-placeholder">
                         <i>⚡</i>
                         <div>VIDEO PREVIEW</div>
-                        <div style="font-size: 11px; color: #6688aa; margin-top: 6px;">Select a video from the list</div>
-                    </div>
-                    <div class="thor-video-controls">
-                        <button class="thor-fullscreen-btn" id="thor-fullscreen-btn">⛶</button>
+                        <div style="font-size: 10px; color: #6688aa; margin-top: 5px;">Select a video from the list</div>
                     </div>
                 </div>
 
@@ -778,7 +769,7 @@
                             <div class="thor-file-details">
                                 <h4 id="thor-selected-file">NO VIDEO SELECTED</h4>
                                 <p id="thor-file-url">Select a video from the list</p>
-                                <p style="color: #00b4ff; font-size: 9px; margin-top: 2px;">By DHWANIT ZALA</p>
+                                <p style="color: #00b4ff; font-size: 8px; margin-top: 2px;">By DHWANIT ZALA</p>
                             </div>
                         </div>
                         <button class="thor-download-btn" id="thor-download-now" disabled>
@@ -808,7 +799,7 @@
             </div>
         </div>
         <div class="thor-watermark">THOR STUDIO • DHWANIT ZALA</div>
-        <div class="thor-version">v2.0 • WORKING</div>
+        <div class="thor-version">v2.0</div>
     `;
 
     // Create toggle button
@@ -822,13 +813,6 @@
     const statusMessage = document.createElement('div');
     statusMessage.className = 'thor-status-message';
     document.body.appendChild(statusMessage);
-
-    // Create fullscreen video container
-    previewContainer.innerHTML = `
-        <div class="thor-fullscreen-video">
-            <video id="thor-fullscreen-video" controls></video>
-        </div>
-    `;
 
     // Loading overlay content
     loadingOverlay.innerHTML = `
@@ -908,36 +892,7 @@
         toggleBtn.style.display = 'flex';
     });
 
-    // Minimize button
-    container.querySelector('.thor-studio-btn.minimize').addEventListener('click', () => {
-        container.style.height = '66px';
-        setTimeout(() => {
-            container.style.height = '650px';
-        }, 2000);
-    });
-
-    // Fullscreen video
-    document.getElementById('thor-fullscreen-btn').addEventListener('click', () => {
-        const video = document.getElementById('thor-video-player');
-        if (video.src) {
-            const fullscreenVideo = document.getElementById('thor-fullscreen-video');
-            fullscreenVideo.src = video.src;
-            previewContainer.style.display = 'flex';
-            fullscreenVideo.play();
-        }
-    });
-
-    // Close fullscreen
-    previewContainer.addEventListener('click', (e) => {
-        if (e.target === previewContainer) {
-            previewContainer.style.display = 'none';
-            const video = document.getElementById('thor-fullscreen-video');
-            video.pause();
-            video.src = '';
-        }
-    });
-
-    // FIXED: Enhanced video scanning function
+    // Enhanced video scanning function
     async function scanForVideos() {
         const scanBtn = document.getElementById('thor-scan-videos');
         const progressBar = document.getElementById('thor-scan-progress');
@@ -950,30 +905,27 @@
         showLoading(true);
         
         try {
-            // Method 1: Get page HTML
+            // Get page content
             const html = document.documentElement.outerHTML;
             foundVideos = [];
             
-            // FIXED: Simple and effective patterns
+            // Video URL patterns
             const patterns = [
-                // Squarespace patterns
+                // Squarespace specific
                 /videoPlaybackUrl[^=]*=["']([^"']+\.m3u8[^"']*)["']/gi,
-                /video\.squarespace-cdn\.com[^"']+\.m3u8/gi,
-                /video\.squarespace-cdn\.com[^"']+\.mp4/gi,
+                /"videoUrl"\s*:\s*"([^"]+\.m3u8[^"]*)"/gi,
+                /https:\/\/video\.squarespace-cdn\.com[^"'\s]+\.m3u8/gi,
+                /https:\/\/video\.squarespace-cdn\.com[^"'\s]+\.mp4/gi,
                 
                 // General video patterns
-                /(https?:\/\/[^\s"'<>]+\.(m3u8|mp4|mpd|webm|avi|mov|wmv|flv|mkv))(?![^<]*>)/gi,
+                /https?:\/\/[^\s"'<>]+\.(m3u8|mp4|mpd|webm|avi|mov|wmv|flv|mkv)(?![^<]*>)/gi,
                 /"url"\s*:\s*"([^"]+\.(m3u8|mp4|mpd))"/gi,
                 /"src"\s*:\s*"([^"]+\.(mp4|webm|ogg))"/gi,
                 /"videoUrl"\s*:\s*"([^"]+)"/gi,
                 
-                // Video elements in HTML
+                // Video elements
                 /<video[^>]+src=["']([^"']+)["']/gi,
                 /<source[^>]+src=["']([^"']+)["']/gi,
-                
-                // JSON data
-                /"playbackUrl"\s*:\s*"([^"]+)"/gi,
-                /"streamUrl"\s*:\s*"([^"]+)"/gi,
                 
                 // Thumbnail to m3u8 conversion
                 /(https:\/\/video\.squarespace-cdn\.com\/content\/v1\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+)\/thumbnail/gi
@@ -987,10 +939,9 @@
                 if (progress >= 90) clearInterval(progressInterval);
             }, 100);
             
-            // Use Set to avoid duplicates
             const videoUrls = new Set();
             
-            // Method 2: Look for video elements in DOM
+            // Method 1: Check video elements in DOM
             const videoElements = document.querySelectorAll('video');
             videoElements.forEach(video => {
                 if (video.src) videoUrls.add(video.src);
@@ -1001,34 +952,35 @@
                 }
             });
             
-            // Method 3: Look for iframes with video
-            const iframes = document.querySelectorAll('iframe');
-            for (const iframe of iframes) {
+            // Method 2: Check iframes
+            const iframes = document.querySelectorAll('iframe[src*="video"], iframe[src*="player"]');
+            iframes.forEach(iframe => {
                 try {
-                    if (iframe.src && iframe.src.includes('video') || iframe.src.includes('player')) {
-                        videoUrls.add(iframe.src);
-                    }
-                } catch (e) {
-                    // Skip cross-origin iframes
-                }
-            }
+                    if (iframe.src) videoUrls.add(iframe.src);
+                } catch (e) {}
+            });
             
-            // Method 4: Scan HTML with patterns
+            // Method 3: Scan HTML with patterns
             patterns.forEach(pattern => {
                 const matches = html.match(pattern);
                 if (matches) {
                     matches.forEach(match => {
                         let url = match;
                         
-                        // Clean up URL
+                        // Extract URL from patterns
                         if (url.includes('videoPlaybackUrl')) {
-                            const match2 = url.match(/videoPlaybackUrl[^=]*=["']([^"']+)["']/);
-                            if (match2 && match2[1]) {
-                                url = match2[1];
+                            const urlMatch = url.match(/videoPlaybackUrl[^=]*=["']([^"']+)["']/);
+                            if (urlMatch && urlMatch[1]) {
+                                url = urlMatch[1];
+                            }
+                        } else if (url.includes('"url"') || url.includes('"src"') || url.includes('"videoUrl"')) {
+                            const urlMatch = url.match(/"([^"]+\.(m3u8|mp4|mpd))"/);
+                            if (urlMatch && urlMatch[1]) {
+                                url = urlMatch[1];
                             }
                         }
                         
-                        // Handle thumbnail conversion
+                        // Convert thumbnail to m3u8
                         if (url.includes('/thumbnail')) {
                             url = url.replace('/thumbnail', '/playlist.m3u8');
                         }
@@ -1040,25 +992,26 @@
                                  .replace(/"/g, '')
                                  .replace(/'/g, '')
                                  .replace(/&quot;/g, '')
-                                 .split('?')[0];
+                                 .split('?')[0]
+                                 .split('&')[0];
                         
                         // Validate URL
                         if (url.startsWith('http') && 
-                            (url.includes('.m3u8') || url.includes('.mp4') || url.includes('.mpd'))) {
+                            (url.includes('.m3u8') || url.includes('.mp4') || url.includes('.mpd') || 
+                             url.includes('.webm') || url.includes('.avi') || url.includes('.mov'))) {
                             videoUrls.add(url);
                         }
                     });
                 }
             });
             
-            // Convert Set to array
-            const uniqueUrls = Array.from(videoUrls);
-            
             // Final progress
             progressBar.style.width = '100%';
             clearInterval(progressInterval);
             
             // Process found URLs
+            const uniqueUrls = Array.from(videoUrls);
+            
             if (uniqueUrls.length > 0) {
                 resultsContainer.innerHTML = '';
                 uniqueUrls.forEach((url, index) => {
@@ -1077,18 +1030,33 @@
                             </div>
                             <div class="thor-video-details">
                                 <h4>${type.toUpperCase()} ${index + 1}</h4>
-                                <p>${url.substring(0, 45)}...</p>
+                                <p>${url.substring(0, 30)}...</p>
                             </div>
                         </div>
+                        <button class="thor-item-download-btn" data-url="${url}" data-type="${type}">
+                            ⬇
+                        </button>
                     `;
                     
-                    videoItem.addEventListener('click', () => selectVideo(index, url, type));
+                    videoItem.addEventListener('click', (e) => {
+                        if (!e.target.classList.contains('thor-item-download-btn')) {
+                            selectVideo(index, url, type);
+                        }
+                    });
+                    
+                    // Add download button listener
+                    const downloadBtn = videoItem.querySelector('.thor-item-download-btn');
+                    downloadBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        downloadFile(url, type);
+                    });
+                    
                     resultsContainer.appendChild(videoItem);
                     
                     foundVideos.push({ url, type, index });
                 });
                 
-                showStatus(`⚡ Found ${uniqueUrls.length} video sources • By DHWANIT ZALA`, 'success');
+                showStatus(`⚡ Found ${uniqueUrls.length} videos • By DHWANIT ZALA`, 'success');
                 
                 // Auto-select first video
                 if (uniqueUrls.length > 0) {
@@ -1096,108 +1064,29 @@
                               uniqueUrls[0].includes('.mpd') ? 'mpd' : 'mp4');
                 }
             } else {
-                // Try alternative scanning method
-                const alternativeUrls = findAlternativeVideoSources();
-                if (alternativeUrls.length > 0) {
-                    resultsContainer.innerHTML = '';
-                    alternativeUrls.forEach((url, index) => {
-                        const type = url.includes('.m3u8') ? 'm3u8' : 'mp4';
-                        const videoItem = document.createElement('div');
-                        videoItem.className = 'thor-video-item';
-                        videoItem.dataset.index = index;
-                        
-                        videoItem.innerHTML = `
-                            <div class="thor-video-info">
-                                <div class="thor-video-icon">
-                                    ${type === 'm3u8' ? '📺' : '🎬'}
-                                </div>
-                                <div class="thor-video-details">
-                                    <h4>${type.toUpperCase()} ${index + 1}</h4>
-                                    <p>${url.substring(0, 45)}...</p>
-                                </div>
-                            </div>
-                        `;
-                        
-                        videoItem.addEventListener('click', () => selectVideo(index, url, type));
-                        resultsContainer.appendChild(videoItem);
-                        foundVideos.push({ url, type, index });
-                    });
-                    
-                    showStatus(`⚡ Found ${alternativeUrls.length} alternative video sources • By DHWANIT ZALA`, 'success');
-                    
-                    if (alternativeUrls.length > 0) {
-                        selectVideo(0, alternativeUrls[0], alternativeUrls[0].includes('.m3u8') ? 'm3u8' : 'mp4');
-                    }
-                } else {
-                    resultsContainer.innerHTML = `
-                        <div class="thor-video-item" style="text-align: center; padding: 25px 12px;">
-                            <div style="font-size: 30px; margin-bottom: 8px; color: #00b4ff;">🔍</div>
-                            <div style="font-size: 12px; color: #88d3ff; font-weight: 600;">NO VIDEOS FOUND</div>
-                            <div style="font-size: 10px; color: #6688aa; margin-top: 4px;">Try playing the video on the page first</div>
-                            <div style="font-size: 9px; color: #445566; margin-top: 6px;">
-                                Tool by DHWANIT ZALA
-                            </div>
+                resultsContainer.innerHTML = `
+                    <div class="thor-video-item" style="text-align: center; padding: 20px 10px; justify-content: center;">
+                        <div>
+                            <div style="font-size: 25px; margin-bottom: 6px; color: #00b4ff;">🔍</div>
+                            <div style="font-size: 11px; color: #88d3ff; font-weight: 600;">NO VIDEOS FOUND</div>
+                            <div style="font-size: 9px; color: #6688aa; margin-top: 3px;">Try playing the video on the page first</div>
                         </div>
-                    `;
-                    showStatus('⚡ No videos found • Try playing video first • By DHWANIT ZALA', 'error');
-                }
+                    </div>
+                `;
+                showStatus('⚡ No videos found • Try playing video first • By DHWANIT ZALA', 'error');
             }
             
         } catch (error) {
             console.error('Scan error:', error);
-            showStatus('⚡ Scan error: ' + error.message + ' • By DHWANIT ZALA', 'error');
+            showStatus('⚡ Scan error • By DHWANIT ZALA', 'error');
         } finally {
             showLoading(false);
             scanBtn.classList.remove('scanning');
-            scanBtn.innerHTML = '<span>🔍</span> SCAN FOR VIDEOS';
+            scanBtn.innerHTML = '<span>🔍</span> SCAN VIDEOS';
             setTimeout(() => {
                 progressBar.style.width = '0%';
             }, 500);
         }
-    }
-
-    // Alternative video source finder
-    function findAlternativeVideoSources() {
-        const sources = [];
-        
-        try {
-            // Check network requests
-            if (window.performance && window.performance.getEntriesByType) {
-                const resources = performance.getEntriesByType('resource');
-                resources.forEach(resource => {
-                    const url = resource.name;
-                    if (url.includes('.m3u8') || url.includes('.mp4') || url.includes('.mpd')) {
-                        sources.push(url);
-                    }
-                });
-            }
-            
-            // Check for blob URLs
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                if (video.src && video.src.startsWith('blob:')) {
-                    // Try to get the actual source
-                    const source = video.currentSrc || video.src;
-                    if (source && source.startsWith('http')) {
-                        sources.push(source);
-                    }
-                }
-            });
-            
-            // Check for video.js or other players
-            if (window.videojs && window.videojs.players) {
-                Object.values(window.videojs.players).forEach(player => {
-                    if (player.currentSrc()) {
-                        sources.push(player.currentSrc());
-                    }
-                });
-            }
-            
-        } catch (e) {
-            console.log('Alternative scan failed:', e);
-        }
-        
-        return sources;
     }
 
     // Select video
@@ -1215,12 +1104,12 @@
         
         // Update UI
         document.getElementById('thor-selected-file').textContent = 
-            `${type.toUpperCase()} SOURCE ${index + 1}`;
+            `${type.toUpperCase()} ${index + 1}`;
         document.getElementById('thor-file-url').textContent = url;
         
         const downloadBtn = document.getElementById('thor-download-now');
         downloadBtn.disabled = false;
-        downloadBtn.innerHTML = `<span>⚡</span> DOWNLOAD ${type.toUpperCase()}`;
+        downloadBtn.innerHTML = `<span>⚡</span> DOWNLOAD`;
         
         // Show video stats
         document.getElementById('thor-video-stats').style.display = 'grid';
@@ -1257,10 +1146,6 @@
                 else if (width >= 854) quality = 'SD';
                 else if (width > 0) quality = 'Low';
                 document.getElementById('thor-video-quality').textContent = quality;
-                
-                if (document.getElementById('thor-auto-play').checked) {
-                    videoPlayer.play().catch(e => console.log('Auto-play blocked'));
-                }
             }
         };
         
@@ -1278,65 +1163,110 @@
             // Ignore
         }
         
-        showStatus(`⚡ ${type.toUpperCase()} source ${index + 1} selected • By DHWANIT ZALA`, 'success');
+        showStatus(`⚡ Video ${index + 1} selected • By DHWANIT ZALA`, 'success');
     }
 
-    // Download function
-    async function downloadVideo() {
-        if (!selectedVideo) return;
-        
+    // Download file function - FIXED to actually download
+    async function downloadFile(url, type) {
         const downloadBtn = document.getElementById('thor-download-now');
         const originalText = downloadBtn.innerHTML;
         
-        downloadBtn.innerHTML = '<span>⚡</span> DOWNLOADING...';
-        downloadBtn.disabled = true;
+        if (downloadBtn.id === 'thor-download-now') {
+            downloadBtn.innerHTML = '<span>⚡</span> DOWNLOADING...';
+            downloadBtn.disabled = true;
+        }
         
         showLoading(true);
         
         try {
-            if (selectedVideo.type === 'm3u8') {
-                // For m3u8, open in new tab
-                window.open(selectedVideo.url, '_blank');
-                showStatus('⚡ M3U8 playlist opened • By DHWANIT ZALA', 'success');
-            } else if (selectedVideo.type === 'mpd') {
-                // For MPD, open in new tab
-                window.open(selectedVideo.url, '_blank');
-                showStatus('⚡ MPD stream opened • By DHWANIT ZALA', 'success');
-            } else {
-                // For MP4, try to download directly
+            // For MP4 files, download directly
+            if (type === 'mp4' || url.includes('.mp4')) {
                 try {
-                    const response = await fetch(selectedVideo.url);
+                    const response = await fetch(url);
                     const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
+                    const downloadUrl = window.URL.createObjectURL(blob);
                     
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = `Thor_Video_${Date.now()}.mp4`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(downloadUrl);
+                    
+                    showStatus('⚡ MP4 downloaded! • By DHWANIT ZALA', 'success');
+                } catch (fetchError) {
+                    // If fetch fails, use alternative method
                     const a = document.createElement('a');
                     a.href = url;
                     a.download = `Thor_Video_${Date.now()}.mp4`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
                     
                     showStatus('⚡ Download started! • By DHWANIT ZALA', 'success');
-                } catch (fetchError) {
-                    // If fetch fails, open in new tab
-                    window.open(selectedVideo.url, '_blank');
-                    showStatus('⚡ Video opened in new tab • By DHWANIT ZALA', 'success');
                 }
+            } 
+            // For M3U8 files, download the playlist file
+            else if (type === 'm3u8' || url.includes('.m3u8')) {
+                try {
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    const blob = new Blob([text], { type: 'application/vnd.apple.mpegurl' });
+                    const downloadUrl = window.URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = `Thor_Playlist_${Date.now()}.m3u8`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(downloadUrl);
+                    
+                    showStatus('⚡ M3U8 playlist downloaded • By DHWANIT ZALA', 'success');
+                } catch (fetchError) {
+                    // Alternative method for M3U8
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `Thor_Playlist_${Date.now()}.m3u8`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    showStatus('⚡ M3U8 download started • By DHWANIT ZALA', 'success');
+                }
+            }
+            // For other video files
+            else {
+                const extension = url.split('.').pop().split('?')[0];
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Thor_Video_${Date.now()}.${extension}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                showStatus(`⚡ ${extension.toUpperCase()} download started • By DHWANIT ZALA`, 'success');
             }
         } catch (error) {
             console.error('Download error:', error);
-            showStatus('⚡ Download failed: ' + error.message + ' • By DHWANIT ZALA', 'error');
+            showStatus('⚡ Download failed • By DHWANIT ZALA', 'error');
         } finally {
             showLoading(false);
-            downloadBtn.innerHTML = originalText;
-            downloadBtn.disabled = false;
+            if (downloadBtn.id === 'thor-download-now') {
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            }
         }
     }
 
     // Event listeners
     document.getElementById('thor-scan-videos').addEventListener('click', scanForVideos);
-    document.getElementById('thor-download-now').addEventListener('click', downloadVideo);
+    document.getElementById('thor-download-now').addEventListener('click', () => {
+        if (selectedVideo) {
+            downloadFile(selectedVideo.url, selectedVideo.type);
+        }
+    });
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
@@ -1355,11 +1285,6 @@
             container.classList.remove('visible');
             toggleBtn.style.display = 'flex';
         }
-        
-        if (e.key === 'F5' && e.ctrlKey) {
-            e.preventDefault();
-            scanForVideos();
-        }
     });
 
     // Auto-detect videos on page load
@@ -1367,11 +1292,6 @@
         const html = document.documentElement.innerHTML;
         if (html.includes('video.') || html.includes('.m3u8') || html.includes('.mp4')) {
             showStatus('⚡ Thor Video Studio by DHWANIT ZALA • Press Ctrl+Shift+T', 'info');
-        }
-        
-        // Pre-scan for common video platforms
-        if (window.location.hostname.includes('squarespace')) {
-            showStatus('⚡ Squarespace detected • Ready to scan videos • By DHWANIT ZALA', 'info');
         }
     }, 1000);
 
